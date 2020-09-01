@@ -74,7 +74,9 @@ namespace BookStore.Domain.Common
         private static void ThrowException<TException>(string message)
             where TException : BaseDomainException
         {
-            Activator.CreateInstance(typeof(BaseDomainException), message);
+            var exception = Activator.CreateInstance(typeof(TException), message) as TException;
+
+            if (exception != null) throw exception;
         }
     }
 }

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Domain", "BookStore.Domain\BookStore.Domain.csproj", "{02025937-9B49-4112-84A4-AB522349CFF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.Domain", "BookStore.Domain\BookStore.Domain.csproj", "{02025937-9B49-4112-84A4-AB522349CFF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookstore.Domain.UnitTests", "Bookstore.Domain.UnitTests\Bookstore.Domain.UnitTests.csproj", "{0F250F3E-D6BD-4D28-8FE3-600CFC6D3130}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{02025937-9B49-4112-84A4-AB522349CFF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02025937-9B49-4112-84A4-AB522349CFF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02025937-9B49-4112-84A4-AB522349CFF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F250F3E-D6BD-4D28-8FE3-600CFC6D3130}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F250F3E-D6BD-4D28-8FE3-600CFC6D3130}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F250F3E-D6BD-4D28-8FE3-600CFC6D3130}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F250F3E-D6BD-4D28-8FE3-600CFC6D3130}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
