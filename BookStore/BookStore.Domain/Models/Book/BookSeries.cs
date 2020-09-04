@@ -3,7 +3,7 @@ using BookStore.Domain.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BookStore.Domain.Models
+namespace BookStore.Domain.Models.Book
 {
     class BookSeries : Entity<int>
     {
@@ -22,6 +22,13 @@ namespace BookStore.Domain.Models
         public int NumberOfBooks => Books.Count;
 
         public IEnumerable<Author> Authors => Books.SelectMany(b => b.Authors).ToHashSet();
+
+        public BookSeries WithBooks(IEnumerable<Book> books)
+        {
+            Books = books.ToHashSet();
+
+            return this;
+        }
 
         public BookSeries AddBook(Book book)
         {

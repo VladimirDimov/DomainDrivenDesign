@@ -2,7 +2,7 @@
 using BookStore.Domain.Exceptions;
 using System;
 
-namespace BookStore.Domain.Models
+namespace BookStore.Domain.Models.Book
 {
     public class Author
     {
@@ -24,7 +24,7 @@ namespace BookStore.Domain.Models
 
         public DateTime? DieDate { get; private set; }
 
-        public Author SetInformation(string information)
+        public Author WithInformation(string information)
         {
             ValidateInformation(information);
             this.Information = information;
@@ -32,7 +32,7 @@ namespace BookStore.Domain.Models
             return this;
         }
 
-        public Author SetBirthDate(DateTime date)
+        public Author WithBirthDate(DateTime date)
         {
             ValidateBirthDate(date);
             this.BirthDate = date;
@@ -40,7 +40,7 @@ namespace BookStore.Domain.Models
             return this;
         }
 
-        public Author SetDieDate(DateTime date)
+        public Author WithDieDate(DateTime date)
         {
             ValidateDieDate(date);
             this.DieDate = date;
@@ -48,12 +48,12 @@ namespace BookStore.Domain.Models
             return this;
         }
 
-        private static void ValidateDieDate(DateTime date)
+        private void ValidateDieDate(DateTime date)
         {
             Guard.AgainstPastDateTime<InvalidAuthorException>(date);
         }
 
-        private static void ValidateBirthDate(DateTime date)
+        private void ValidateBirthDate(DateTime date)
         {
             Guard.AgainstPastDateTime<InvalidAuthorException>(date);
         }

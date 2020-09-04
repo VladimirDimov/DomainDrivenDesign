@@ -1,7 +1,7 @@
 ﻿using BookStore.Domain.Common;
 using BookStore.Domain.Exceptions;
 
-namespace BookStore.Domain.Models
+namespace BookStore.Domain.Models.Book
 {
     public class Genre : Entity<int>
     {

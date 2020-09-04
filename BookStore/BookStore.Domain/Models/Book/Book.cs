@@ -1,14 +1,15 @@
 ﻿using BookStore.Domain.Common;
 using BookStore.Domain.Exceptions;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace BookStore.Domain.Models
+namespace BookStore.Domain.Models.Book
 {
     public partial class Book
     {
         public Book(string title, Language language)
         {
-            SetTitle(title);
+            WithTitle(title);
             SetLanguage(language);
         }
 
@@ -16,24 +17,42 @@ namespace BookStore.Domain.Models
 
         public int? Pages { get; private set; }
 
+        public Publisher Publisher { get; private set; } = default!;
+
         public Money Price { get; private set; } = default!;
 
         public Language Language { get; private set; } = default!;
 
-        public ICollection<Author> Authors { get; private set; } = new List<Author>();
+        public ICollection<Author> Authors { get; private set; } = new HashSet<Author>();
 
-        public ICollection<Genre> Genres { get; private set; } = new List<Genre>();
+        public ICollection<Genre> Genres { get; private set; } = new HashSet<Genre>();
 
-        public void SetTitle(string title)
+        public Book WithGenres(IEnumerable<Genre> genres)
+        {
+            Genres = genres.ToHashSet();
+
+            return this;
+        }
+
+        public Book WithTitle(string title)
         {
             ValidateTitle(title);
             Title = title;
+
+            return this;
         }
 
-        public Book SetPages(int pages)
+        public Book WithPages(int pages)
         {
             ValidatePages(pages);
             Pages = pages;
+
+            return this;
+        }
+
+        public Book WithAuthors(IEnumerable<Author> authors)
+        {
+            Authors = authors.ToHashSet();
 
             return this;
         }
@@ -52,6 +71,19 @@ namespace BookStore.Domain.Models
             Price = price;
 
             return this;
+        }
+
+        public Book WithPublisher(Publisher publisher)
+        {
+            ValidatePublisher(publisher);
+            Publisher = publisher;
+
+            return this;
+        }
+
+        private static void ValidatePublisher(Publisher publisher)
+        {
+            Guard.AgainstNull<InvalidBookException, Publisher>(publisher, "Book's Publisher");
         }
 
         private void SetLanguage(Language language)

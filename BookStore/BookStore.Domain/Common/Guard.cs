@@ -44,8 +44,11 @@ namespace BookStore.Domain.Common
             if (value == null) ThrowException<TException>($"{name} cannot be null");
         }
 
-        internal static void ForStringLength(string value, int minLength)
+        internal static void ForStringLength<TException>(string value, int exactLength, string name = "value")
+            where TException : BaseDomainException
         {
+            if (value == null) return;
+            if (value.Length != exactLength) ThrowException<TException>($"{name} length must be exactly {exactLength} characters");
 
         }
 
