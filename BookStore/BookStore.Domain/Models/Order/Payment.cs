@@ -4,7 +4,7 @@ namespace BookStore.Domain.Models.Order
 {
     public class Payment : Entity<int>
     {
-        public Payment(PaymentType paymentType, Money amount)
+        internal Payment(PaymentType paymentType, Money amount)
         {
             PaymentType = paymentType;
             Amount = amount;

@@ -5,7 +5,7 @@ namespace BookStore.Domain.Models
 {
     public class Address : ValueObject
     {
-        public Address(string country, string city, string exactAddress)
+        internal Address(string country, string city, string exactAddress)
         {
             Country = country;
             City = city;

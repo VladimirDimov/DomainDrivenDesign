@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace BookStore.Domain.Models.Book
 {
-    public partial class Book
+    public class Book
     {
-        public Book(string title, Language language)
+        internal Book(string title, Language language)
         {
             WithTitle(title);
             SetLanguage(language);

@@ -5,7 +5,7 @@ namespace BookStore.Domain.Models
 {
     public class PhoneNumber
     {
-        public PhoneNumber(PhoneNumberType type, string number)
+        internal PhoneNumber(PhoneNumberType type, string number)
         {
             SetPhoneNumberType(type);
             SetNumber(number);

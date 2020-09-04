@@ -7,7 +7,7 @@ namespace BookStore.Domain.Models.Book
 {
     class BookSeries : Entity<int>
     {
-        public BookSeries(string title)
+        internal BookSeries(string title)
         {
             SetTitle(title);
             Books = new HashSet<Book>();

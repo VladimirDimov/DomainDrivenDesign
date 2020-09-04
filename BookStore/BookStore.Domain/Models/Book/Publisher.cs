@@ -7,7 +7,7 @@ namespace BookStore.Domain.Models.Book
     {
         private const string PublisherNameField = "Publiher Name";
 
-        public Publisher(string name)
+        internal Publisher(string name)
         {
             SetName(name);
         }

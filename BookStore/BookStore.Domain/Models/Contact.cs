@@ -7,7 +7,7 @@ namespace BookStore.Domain.Models
 {
     public class Contact : ValueObject
     {
-        public Contact()
+        internal Contact()
         {
             PhoneNumbers = new HashSet<PhoneNumber>();
             Email = default!;

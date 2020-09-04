@@ -5,7 +5,7 @@ namespace BookStore.Domain.Models.Book
 {
     public class Genre : Entity<int>
     {
-        public Genre(string name)
+        internal Genre(string name)
         {
             SetName(name);
         }

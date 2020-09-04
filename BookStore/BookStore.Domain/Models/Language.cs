@@ -4,7 +4,7 @@ namespace BookStore.Domain.Models
 {
     public class Language : Entity<int>
     {
-        public Language(string name, string code)
+        internal Language(string name, string code)
         {
             Name = name;
             Code = code;

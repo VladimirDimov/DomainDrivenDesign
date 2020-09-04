@@ -5,7 +5,7 @@ namespace BookStore.Domain.Models
 {
     public class Money : ValueObject
     {
-        public Money(Currency currency, decimal amount)
+        internal Money(Currency currency, decimal amount)
         {
             SetCurrency(currency);
             SetAmount(amount);

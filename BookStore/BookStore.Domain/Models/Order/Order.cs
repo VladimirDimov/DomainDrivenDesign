@@ -6,7 +6,7 @@ namespace BookStore.Domain.Models.Order
 {
     class Order : Entity<int>
     {
-        public Order(int orderNumber, DateTime orderDate)
+        internal Order(int orderNumber, DateTime orderDate)
         {
             OrderNumber = orderNumber;
             OrderDate = orderDate;

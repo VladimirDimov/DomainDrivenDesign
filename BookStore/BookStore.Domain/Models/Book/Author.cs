@@ -6,7 +6,7 @@ namespace BookStore.Domain.Models.Book
 {
     public class Author
     {
-        public Author(string firstName, string lastName)
+        internal Author(string firstName, string lastName)
         {
             FirstName = firstName;
             LastName = lastName;

@@ -2,7 +2,7 @@
 
 namespace BookStore.Domain.Models.Order
 {
-    public class OrderItem : ValueObject
+    internal class OrderItem : ValueObject
     {
         public int BookId { get; private set; }
 
