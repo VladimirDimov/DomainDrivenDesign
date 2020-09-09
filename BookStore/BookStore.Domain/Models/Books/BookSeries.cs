@@ -3,7 +3,7 @@ using BookStore.Domain.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BookStore.Domain.Models.Book
+namespace BookStore.Domain.Models.Books
 {
     class BookSeries : Entity<int>
     {

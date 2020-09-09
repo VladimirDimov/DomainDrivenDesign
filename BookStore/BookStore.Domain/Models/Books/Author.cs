@@ -2,10 +2,17 @@
 using BookStore.Domain.Exceptions;
 using System;
 
-namespace BookStore.Domain.Models.Book
+namespace BookStore.Domain.Models.Books
 {
     public class Author
     {
+        private Author()
+        {
+            FirstName = default!;
+            LastName = default!;
+            Information = default!;
+        }
+
         internal Author(string firstName, string lastName)
         {
             FirstName = firstName;

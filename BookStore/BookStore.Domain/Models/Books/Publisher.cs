@@ -1,7 +1,7 @@
 ﻿using BookStore.Domain.Common;
 using BookStore.Domain.Exceptions;
 
-namespace BookStore.Domain.Models.Book
+namespace BookStore.Domain.Models.Books
 {
     public class Publisher : Entity<int>
     {

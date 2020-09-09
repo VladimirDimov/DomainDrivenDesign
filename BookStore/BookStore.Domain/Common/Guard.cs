@@ -70,7 +70,7 @@ namespace BookStore.Domain.Common
             where TException : BaseDomainException
         {
             if (value == null) return;
-            if (minLength < value.Length || value.Length < maxLength)
+            if (value.Length < minLength || maxLength < value.Length)
                 ThrowException<TException>($"{name} length must be between {minLength} and {maxLength} characters");
         }
 

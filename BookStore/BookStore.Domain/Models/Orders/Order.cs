@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BookStore.Domain.Models.Order
 {
-    class Order : Entity<int>
+    public class Order : Entity<int>, IAggregateRoot
     {
         internal Order(int orderNumber, DateTime orderDate)
         {
@@ -26,7 +26,7 @@ namespace BookStore.Domain.Models.Order
 
         public Payment Payment { get; private set; } = default!;
 
-        private Order SetItems(IEnumerable<OrderItem> items)
+        public Order WithOrderItems(IEnumerable<OrderItem> items)
         {
             // TODO: validate
             Items = items;
@@ -34,7 +34,7 @@ namespace BookStore.Domain.Models.Order
             return this;
         }
 
-        private Order SetTransportTax(Money moeny)
+        public Order WithTransportTax(Money moeny)
         {
             // TODO: validate
             TransportTax = moeny;
@@ -42,7 +42,7 @@ namespace BookStore.Domain.Models.Order
             return this;
         }
 
-        private Order SetToAddress(Address toAddress)
+        public Order WithToAddress(Address toAddress)
         {
             // TODO: validate
             ToAddress = toAddress;
@@ -50,7 +50,7 @@ namespace BookStore.Domain.Models.Order
             return this;
         }
 
-        private Order SetContact(Contact contact)
+        public Order WithContact(Contact contact)
         {
             // TODO: validate
             Contact = contact;
@@ -58,7 +58,7 @@ namespace BookStore.Domain.Models.Order
             return this;
         }
 
-        private Order SetPayment(Payment payment)
+        public Order WithPayment(Payment payment)
         {
             // TODO: validate
             Payment = payment;

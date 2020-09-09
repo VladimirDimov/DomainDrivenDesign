@@ -2,14 +2,15 @@
 using BookStore.Domain.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
-namespace BookStore.Domain.Models.Book
+namespace BookStore.Domain.Models.Books
 {
-    public class Book
+    public class Book : IAggregateRoot
     {
         internal Book(string title, Language language)
         {
-            WithTitle(title);
+            SetTitle(title);
             SetLanguage(language);
         }
 
@@ -20,6 +21,14 @@ namespace BookStore.Domain.Models.Book
         public Publisher Publisher { get; private set; } = default!;
 
         public Money Price { get; private set; } = default!;
+
+        internal Book WithAuthors(IEnumerable<Author> bookAuthors)
+        {
+            // TODO: validate
+            Authors = bookAuthors.ToHashSet();
+
+            return this;
+        }
 
         public Language Language { get; private set; } = default!;
 
@@ -34,25 +43,16 @@ namespace BookStore.Domain.Models.Book
             return this;
         }
 
-        public Book WithTitle(string title)
+        public void SetTitle(string title)
         {
             ValidateTitle(title);
             Title = title;
-
-            return this;
         }
 
         public Book WithPages(int pages)
         {
             ValidatePages(pages);
             Pages = pages;
-
-            return this;
-        }
-
-        public Book WithAuthors(IEnumerable<Author> authors)
-        {
-            Authors = authors.ToHashSet();
 
             return this;
         }
@@ -94,6 +94,7 @@ namespace BookStore.Domain.Models.Book
 
         private static void ValidateTitle(string title)
         {
+            Guard.AgainstNullOrEmpty<InvalidBookException>(title, nameof(Title));
             Guard.ForStringLength<InvalidBookException>(title, 1, 200);
         }
 
