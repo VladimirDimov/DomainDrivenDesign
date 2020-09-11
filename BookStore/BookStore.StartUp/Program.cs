@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace BookStore.Web
+namespace BookStore.StartUp
 {
-    public class Program
+    class Program
     {
         public static void Main(string[] args)
         {

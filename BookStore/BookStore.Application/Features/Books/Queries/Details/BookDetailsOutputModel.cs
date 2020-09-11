@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BookStore.Application.Features.Books.Queries.Details
+﻿namespace BookStore.Application.Features.Books.Queries.Details
 {
-    class BookDetailsOutputModel
+    public class BookDetailsOutputModel
     {
+        public int Id { get; set; }
+        public string Title { get; set; }
     }
 }
